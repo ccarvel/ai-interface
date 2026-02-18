@@ -15,7 +15,7 @@ import Image from "next/image";
 
 const examples = [
   "Write a short poem about the present moment. Let the sentence revise itself once. Avoid ending conclusively.",
-  "Write a poem where abstraction feels social. Keep the setting indoors. Let the tone shift slightly midway."
+  "Write a poem where abstraction feels social. Keep the setting indoors. Let the tone shift slightly midway.",
   "Write a poem that begins mid-thought. Allow syntax to guide the movement. End with uncertainty rather than resolution.",
 ];
 
