@@ -31,8 +31,8 @@ export default function Home() {
       <div className="border-gray-200sm:mx-0 mx-5 mt-20 max-w-screen-md rounded-md border sm:w-full">
         <div className="flex flex-col space-y-4 p-7 sm:p-10">
           <Image
-            src="/sample-image.png"
-            alt="sample-image"
+            src="/image.png"
+            alt="image"
             width={40}
             height={40}
             className="h-20 w-20"
