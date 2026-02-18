@@ -4,7 +4,7 @@ This file provides guidance for Claude Code when working with this repository.
 
 ## Project Overview
 
-AI Chatbot Interface ("Shooketh") - A fine-tuned GPT-3.5-turbo chatbot built with Next.js that responds in Shakespearean/poetic language. The project demonstrates building custom AI chatbots with OpenAI's fine-tuning capabilities.
+AI Chatbot Interface ("The Provisional v0.1") - A fine-tuned GPT-4.1 chatbot built with Next.js that generates poetry using associative logic and tonal ambiguity. The project demonstrates building custom AI chatbots with OpenAI's fine-tuning capabilities, as part of a course taught by Halim Madi at Brown University Library CDS.
 
 ## Tech Stack
 
@@ -49,7 +49,7 @@ pnpm tune             # Run fine-tuning script with training data
 
 ## Key Files
 
-- **`app/api/chat/route.ts`** - POST endpoint that streams OpenAI completions using the fine-tuned model (`ft:gpt-3.5-turbo-0613:personal:ai-poet:88GTGA7b`)
+- **`app/api/chat/route.ts`** - POST endpoint that streams OpenAI completions using the fine-tuned model (`ft:gpt-4.1-2025-04-14:brown-university-library-cds:weirding-cody:DAhGkXPQ`). Generation parameters (e.g. `max_tokens`, `temperature`, `top_p`) are not currently set and would be added to the `openai.chat.completions.create()` call here.
 - **`app/page.tsx`** - React client component with `useChat` hook for message handling, auto-expanding input, and streaming response display
 - **`scripts/fine-tune.ts`** - Uploads training data and monitors fine-tuning job progress
 - **`scripts/data.jsonl`** - Training examples in OpenAI JSONL format with system/user/assistant message triplets
@@ -60,7 +60,7 @@ pnpm tune             # Run fine-tuning script with training data
 - Chat API runs on Vercel Edge Runtime for low latency
 - Streaming responses via `OpenAIStream` and `StreamingTextResponse` from Vercel AI SDK
 - Client-side state managed by `useChat` hook from `ai/react`
-- System prompt defines the chatbot personality: "Whomp is a whitty French poet whose writing is a mix of Ocean Vuong and Charles Bernstein"
+- System prompt defines the chatbot personality: "You are a poet whose writing favors associative logic, tonal slippage, and reflective ambiguity. You avoid narrative closure and allow thought to unfold indirectly through images and syntax."
 
 ## Environment Variables
 

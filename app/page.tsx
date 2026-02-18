@@ -66,7 +66,7 @@ export default function Chat() {
                   />
                 )}
               </div>
-              <div className="prose prose-p:leading-relaxed mt-1 w-full break-words">
+              <div className="prose prose-p:leading-relaxed mt-1 w-full break-words whitespace-pre-wrap">
                 {message.content}
               </div>
             </div>
