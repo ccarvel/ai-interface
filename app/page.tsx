@@ -14,9 +14,9 @@ import Textarea from "react-textarea-autosize";
 import Image from "next/image";
 
 const examples = [
-  "Example 1",
-  "Example 2",
-  "Example 3",
+  "Write a short poem about the present moment. Let the sentence revise itself once. Avoid ending conclusively.",
+  "Write a poem where abstraction feels social. Keep the setting indoors. Let the tone shift slightly midway.
+  "Write a poem that begins mid-thought. Allow syntax to guide the movement. End with uncertainty rather than resolution.",
 ];
 
 export default function Chat() {
@@ -83,7 +83,7 @@ export default function Chat() {
               className="h-20 w-20"
             />
             <h1 className="text-lg font-semibold text-black">
-              Hi, I'm a fine tuned LLM.
+              The Provisional v0.1: LLM fine-tuned on gpt-4.1
             </h1>
             <p className="text-gray-500">
               I'm part of a series of computational experiments taught by{" "}
