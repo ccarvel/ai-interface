@@ -22,7 +22,8 @@ export async function POST(req: Request) {
     // Minimum output length. Suppresses end-of-sequence until this many tokens are generated.
     // Prevents the model from stopping too early. 1 line ≈ 10–20 tokens.
     // For at least 6 lines: ~100. For at least 10 lines: ~150.
-    min_tokens: 100,
+    // min_tokens no existe
+    // min_tokens: 100,
 
     // Hard cap on output length. 1 token ≈ 0.75 words.
     // For short poems: 150–300. For longer pieces: 400–600.
