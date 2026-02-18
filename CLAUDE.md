@@ -20,7 +20,8 @@ AI Chatbot Interface ("The Provisional v0.1") - A fine-tuned GPT-4.1 chatbot bui
 ```
 app/
 ├── api/chat/route.ts    # OpenAI streaming chat endpoint (Edge runtime)
-├── page.tsx             # Main chat UI component (client-side)
+├── chat/page.tsx        # Chat interface (messages, reply input, save/nav)
+├── page.tsx             # Home page: avatar, description, example buttons, input
 ├── layout.tsx           # Root layout with metadata
 ├── icons.tsx            # SVG icon components
 └── globals.css          # Tailwind directives
@@ -50,13 +51,16 @@ pnpm tune             # Run fine-tuning script with training data
 ## Key Files
 
 - **`app/api/chat/route.ts`** - POST endpoint that streams OpenAI completions using the fine-tuned model (`ft:gpt-4.1-2025-04-14:brown-university-library-cds:weirding-cody:DAhGkXPQ`). Generation parameters (e.g. `max_tokens`, `temperature`, `top_p`) are not currently set and would be added to the `openai.chat.completions.create()` call here.
-- **`app/page.tsx`** - React client component with `useChat` hook for message handling, auto-expanding input, and streaming response display
+- **`app/page.tsx`** - Home page: avatar, title, description, example buttons, custom text input. No chat logic. On submit/example click, stores prompt in `sessionStorage` and navigates to `/chat`.
+- **`app/chat/page.tsx`** - Chat interface. Reads `sessionStorage.getItem('initial_prompt')` on mount and auto-submits via `append()`. Includes "← Start over" nav, "Save as .txt" download (appears after first assistant message), streaming message display, and reply input with updated placeholder.
 - **`scripts/fine-tune.ts`** - Uploads training data and monitors fine-tuning job progress
 - **`scripts/data.jsonl`** - Training examples in OpenAI JSONL format with system/user/assistant message triplets
 
 ## Architecture Notes
 
 - Uses Next.js App Router pattern (`/app` directory)
+- Two-page routing: `/` (home) and `/chat` (conversation)
+- Prompt is passed from home to chat via `sessionStorage` (`initial_prompt` key), cleared on read
 - Chat API runs on Vercel Edge Runtime for low latency
 - Streaming responses via `OpenAIStream` and `StreamingTextResponse` from Vercel AI SDK
 - Client-side state managed by `useChat` hook from `ai/react`
