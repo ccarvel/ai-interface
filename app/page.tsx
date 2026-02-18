@@ -183,7 +183,7 @@ export default function Chat() {
             rel="noopener noreferrer"
             className="transition-colors hover:text-black"
           >
-            OpenAI GPT-3.5-turbo, as part of a course taught by
+            OpenAI GPT-4.1, as part of a course taught by
           </a>{" "}
           Halim Madi.{" "}
           <a
